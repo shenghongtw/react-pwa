@@ -3,6 +3,11 @@
   "short_name": "reactpwa",
   "description": "Starter kit for modern web applications",
   "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/?source=pwa",
   "icons": [
     {
       "src": "pwa-192x192.png",

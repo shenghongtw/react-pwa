@@ -12,10 +12,16 @@ export default defineConfig({
     VitePWA({
       manifest,
       includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
-      // switch to "true" to enable sw on development
-      devOptions: { enabled: false },
+      // 在开发环境中启用 PWA 进行测试
+      devOptions: { 
+        enabled: true
+      },
       registerType: 'autoUpdate',
-      workbox: { globPatterns: ['**/*.{js,css,html}', '**/*.{svg,png,jpg,gif}'] },
+      workbox: { 
+        globPatterns: ['**/*.{js,css,html}', '**/*.{svg,png,jpg,gif}'],
+        clientsClaim: true,
+        skipWaiting: true
+      },
     }),
   ],
   resolve: { alias: { '@': path.resolve(__dirname, './src') } },
