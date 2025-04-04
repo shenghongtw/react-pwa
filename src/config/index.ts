@@ -1,4 +1,4 @@
-const title = 'React PWA';
+const title = 'ai貢獻度辨識';
 
 const email = 'auther-email@gmail.com';
 
@@ -14,7 +14,7 @@ const loader = {
 
 const defaultMetaTags = {
   image: '/cover.png',
-  description: 'Starter kit for modern web applications',
+  description: 'ai貢獻度辨識',
 };
 
 export { loader, dateFormat, repository, email, title, defaultMetaTags };

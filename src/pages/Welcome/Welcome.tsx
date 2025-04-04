@@ -83,12 +83,33 @@ const Welcome: React.FC = () => {
       dataIndex: 'level',
       key: 'level',
       width: '25%',
+      responsive: ['md'], // 在中等及以上屏幕显示
+    },
+    {
+      title: '會員等級',
+      dataIndex: 'level',
+      key: 'level-sm',
+      responsive: ['xs', 'sm'], // 在小屏幕上显示
     },
     {
       title: '金幣捐獻',
       dataIndex: 'coins',
       key: 'coins',
       width: '37.5%',
+      responsive: ['md'], // 在中等及以上屏幕显示
+      render: (_: unknown, record: RecordType, index: number) => (
+        <Input
+          placeholder="請輸入捐獻值"
+          value={record.coins}
+          onChange={(e) => handleInputChange(index, 'coins', e.target.value)}
+        />
+      ),
+    },
+    {
+      title: '金幣捐獻',
+      dataIndex: 'coins',
+      key: 'coins-sm',
+      responsive: ['xs', 'sm'], // 在小屏幕上显示
       render: (_: unknown, record: RecordType, index: number) => (
         <Input
           placeholder="請輸入捐獻值"
@@ -102,6 +123,20 @@ const Welcome: React.FC = () => {
       dataIndex: 'activity',
       key: 'activity',
       width: '37.5%',
+      responsive: ['md'], // 在中等及以上屏幕显示
+      render: (_: unknown, record: RecordType, index: number) => (
+        <Input
+          placeholder="請輸入活躍貢獻"
+          value={record.activity}
+          onChange={(e) => handleInputChange(index, 'activity', e.target.value)}
+        />
+      ),
+    },
+    {
+      title: '活躍貢獻',
+      dataIndex: 'activity',
+      key: 'activity-sm',
+      responsive: ['xs', 'sm'], // 在小屏幕上显示
       render: (_: unknown, record: RecordType, index: number) => (
         <Input
           placeholder="請輸入活躍貢獻"
@@ -556,21 +591,25 @@ const Welcome: React.FC = () => {
       title: '會員 ID',
       dataIndex: 'memberId',
       key: 'memberId',
+      responsive: ['xs'], // 在所有屏幕尺寸都显示
     },
     {
       title: '金幣捐獻',
       dataIndex: 'coinsContribution',
       key: 'coinsContribution',
+      responsive: ['sm'], // 在小屏幕及以上显示
     },
     {
       title: '活躍貢獻',
       dataIndex: 'activityContribution',
       key: 'activityContribution',
+      responsive: ['sm'], // 在小屏幕及以上显示
     },
     {
       title: '會員等級',
       dataIndex: 'level',
       key: 'level',
+      responsive: ['xs'], // 在所有屏幕尺寸都显示
     },
   ];
 
@@ -706,14 +745,24 @@ const Welcome: React.FC = () => {
         {/* 第一個區塊：表格 */}
         <Card title="會員資訊" style={{ marginBottom: 20 }}>
           <Form form={form}>
-            <Table columns={columns} dataSource={memberData} pagination={false} rowKey="key" />
+            <Table
+              columns={columns}
+              dataSource={memberData}
+              pagination={false}
+              rowKey="key"
+              scroll={{ x: 'max-content' }} // 添加水平滚动
+            />
           </Form>
         </Card>
 
         {/* 第二個區塊：圖片上傳 */}
         <Card title="圖片上傳" style={{ marginBottom: 20 }}>
-          <Row gutter={24}>
-            <Col span={12}>
+          <Row gutter={[24, 24]}>
+            {' '}
+            {/* 增加垂直间距 */}
+            <Col xs={24} md={12}>
+              {' '}
+              {/* 响应式列设置 */}
               <Card
                 title="金幣捐獻辨識"
                 type="inner"
@@ -736,7 +785,9 @@ const Welcome: React.FC = () => {
                 )}
               </Card>
             </Col>
-            <Col span={12}>
+            <Col xs={24} md={12}>
+              {' '}
+              {/* 响应式列设置 */}
               <Card
                 title="活躍貢獻辨識"
                 type="inner"
@@ -767,7 +818,9 @@ const Welcome: React.FC = () => {
           <Card
             title="辨識結果"
             extra={
-              <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+                {' '}
+                {/* 添加 flexWrap */}
                 <span style={{ marginRight: 8 }}>篩選會員等級：</span>
                 <Select
                   style={{ width: 120 }}
@@ -784,6 +837,7 @@ const Welcome: React.FC = () => {
               dataSource={filterMembersByLevel(recognizedMembers)}
               pagination={false}
               rowKey="memberId"
+              scroll={{ x: 'max-content' }} // 添加水平滚动
             />
           </Card>
         )}

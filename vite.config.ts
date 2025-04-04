@@ -11,9 +11,9 @@ export default defineConfig({
     react(),
     VitePWA({
       manifest: {
-        name: "React PWA",
-        short_name: "reactpwa",
-        description: "Starter kit for modern web applications",
+        name: "ai貢獻度辨識",
+        short_name: "ai貢獻度辨識",
+        description: "ai貢獻度辨識",
         theme_color: "#ffffff",
         background_color: "#ffffff",
         display: "standalone",
