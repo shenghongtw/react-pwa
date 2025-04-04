@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Card, Col, Form, Input, Row, Select, Spin, Table, Upload, message } from 'antd';
 import type { UploadFile, UploadProps } from 'antd';
+import type { Breakpoint } from 'antd/es/_util/responsiveObserver';
 
 import { Container, Content } from './styled';
 
@@ -83,20 +84,20 @@ const Welcome: React.FC = () => {
       dataIndex: 'level',
       key: 'level',
       width: '25%',
-      responsive: ['md'], // 在中等及以上屏幕显示
+      responsive: ['md'] as Breakpoint[],
     },
     {
       title: '會員等級',
       dataIndex: 'level',
       key: 'level-sm',
-      responsive: ['xs', 'sm'], // 在小屏幕上显示
+      responsive: ['xs', 'sm'] as Breakpoint[],
     },
     {
       title: '金幣捐獻',
       dataIndex: 'coins',
       key: 'coins',
       width: '37.5%',
-      responsive: ['md'], // 在中等及以上屏幕显示
+      responsive: ['md'] as Breakpoint[],
       render: (_: unknown, record: RecordType, index: number) => (
         <Input
           placeholder="請輸入捐獻值"
@@ -109,7 +110,7 @@ const Welcome: React.FC = () => {
       title: '金幣捐獻',
       dataIndex: 'coins',
       key: 'coins-sm',
-      responsive: ['xs', 'sm'], // 在小屏幕上显示
+      responsive: ['xs', 'sm'] as Breakpoint[],
       render: (_: unknown, record: RecordType, index: number) => (
         <Input
           placeholder="請輸入捐獻值"
@@ -123,7 +124,7 @@ const Welcome: React.FC = () => {
       dataIndex: 'activity',
       key: 'activity',
       width: '37.5%',
-      responsive: ['md'], // 在中等及以上屏幕显示
+      responsive: ['md'] as Breakpoint[],
       render: (_: unknown, record: RecordType, index: number) => (
         <Input
           placeholder="請輸入活躍貢獻"
@@ -136,7 +137,7 @@ const Welcome: React.FC = () => {
       title: '活躍貢獻',
       dataIndex: 'activity',
       key: 'activity-sm',
-      responsive: ['xs', 'sm'], // 在小屏幕上显示
+      responsive: ['xs', 'sm'] as Breakpoint[],
       render: (_: unknown, record: RecordType, index: number) => (
         <Input
           placeholder="請輸入活躍貢獻"
@@ -591,25 +592,25 @@ const Welcome: React.FC = () => {
       title: '會員 ID',
       dataIndex: 'memberId',
       key: 'memberId',
-      responsive: ['xs'], // 在所有屏幕尺寸都显示
+      responsive: ['xs'] as Breakpoint[],
     },
     {
       title: '金幣捐獻',
       dataIndex: 'coinsContribution',
       key: 'coinsContribution',
-      responsive: ['sm'], // 在小屏幕及以上显示
+      responsive: ['sm'] as Breakpoint[],
     },
     {
       title: '活躍貢獻',
       dataIndex: 'activityContribution',
       key: 'activityContribution',
-      responsive: ['sm'], // 在小屏幕及以上显示
+      responsive: ['sm'] as Breakpoint[],
     },
     {
       title: '會員等級',
       dataIndex: 'level',
       key: 'level',
-      responsive: ['xs'], // 在所有屏幕尺寸都显示
+      responsive: ['xs'] as Breakpoint[],
     },
   ];
 
