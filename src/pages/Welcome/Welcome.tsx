@@ -13,6 +13,12 @@ interface MemberRecognitionResult {
   imageId?: string; // 新增圖片ID追蹤
 }
 
+interface RecordType {
+  id: string;
+  name: string;
+  // 其他属性...
+}
+
 const Welcome: React.FC = () => {
   const [fileList1, setFileList1] = useState<UploadFile[]>([]);
   const [fileList2, setFileList2] = useState<UploadFile[]>([]);
@@ -81,7 +87,7 @@ const Welcome: React.FC = () => {
       dataIndex: 'coins',
       key: 'coins',
       width: '37.5%',
-      render: (_, record, index) => (
+      render: (_: any, record: RecordType, index: number) => (
         <Input
           placeholder="請輸入捐獻值"
           value={record.coins}
@@ -94,7 +100,7 @@ const Welcome: React.FC = () => {
       dataIndex: 'activity',
       key: 'activity',
       width: '37.5%',
-      render: (_, record, index) => (
+      render: (_: any, record: RecordType, index: number) => (
         <Input
           placeholder="請輸入活躍貢獻"
           value={record.activity}
